@@ -10,6 +10,7 @@ import java.util.Scanner;
 
 
 public class Restaurant {
+
     public static void main(String[] args) {
         // write your code here
         ArrayList<MenuItem> menuItems = new ArrayList<>();

@@ -5,6 +5,7 @@ import java.util.Objects;
 
 
 public class MenuItem {
+
     private double price;
     private String description;
     private String category;
