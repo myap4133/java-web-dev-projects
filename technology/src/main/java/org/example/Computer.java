@@ -1,11 +1,12 @@
 package org.example;
 
-public class Computer {
+public class Computer extends abstractEntity{
     private String iOS;
     private String owner;
     private String RAM_Size;
 
     public Computer(String anIOS, String anOwner, String ram){
+        super();
         iOS = anIOS;
         owner = anOwner;
         RAM_Size = ram;
