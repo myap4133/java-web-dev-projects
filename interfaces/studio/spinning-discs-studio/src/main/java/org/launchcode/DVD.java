@@ -26,6 +26,10 @@ public class DVD extends Disc implements OpticalDisc{
 
     @Override
     public HashMap<String, Double> readData() {
-        return null;
+        HashMap<String, Double> infoForReport = getStorageInfo();
+        if(infoForReport.isEmpty()){
+            System.out.println("No data available.");
+        }
+        return infoForReport;
     }
 }
