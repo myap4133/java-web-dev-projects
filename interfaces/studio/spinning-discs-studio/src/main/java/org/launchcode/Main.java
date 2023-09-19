@@ -13,12 +13,14 @@ public class Main {
 
         System.out.println(cd.getMaxRPM());
 
-        /*cd.readData();
+        cd.writeData("Bobby", 17.1);
+
+        cd.readData();
 
         dvd.addStorageInfo("Cat Video", 11.11);
 
         cd.writeData("Toxic", 13.0);
         cd.writeData("One Piece OP 1", 10.3);
-        cd.writeData("Child of the Lamb", 17777.77);*/
+        cd.writeData("Child of the Lamb", 17777.77);
     }
 }

@@ -7,7 +7,7 @@ public abstract class Disc {
     private final double storageCapacity;
     private double storageUsed;
     private double storageLeft;
-    private HashMap<String, Double> storageInfo;
+    private HashMap<String, Double> storageInfo = new HashMap<>();
 
     public Disc( double storageMax, double storageUsed){
         storageCapacity = storageMax;
