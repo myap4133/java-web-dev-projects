@@ -1,10 +1,13 @@
 package org.launchcode.hellospring.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
-@ResponseBody
 @RequestMapping("hello")
 public class HelloController {
     //Route 1 for /hello
@@ -15,6 +18,7 @@ public class HelloController {
 
     //Route 2 for /hello/goodbye
     @GetMapping("goodbye")
+    @ResponseBody
     public String goodbye(){
         return "Goodbye, Spring!";
     }
@@ -22,31 +26,29 @@ public class HelloController {
     //Lives at /hello/hello
     //Handle request for /hello?name=LaunchCode
     @GetMapping("hello")
-    public String helloWithParam(@RequestParam String name){
-        return "Hello, " + name + "!";
+    public String helloWithParam(@RequestParam String name, Model model){
+        String greet = "Hello, " + name + "!";
+        model.addAttribute("greet", greet);
+        return "hello";
     }
 
     //Handle request for /hello/LaunchCode
     @GetMapping("{name}")
-    public String helloWithPath(@PathVariable String name){
-        return "Hello, " + name + "!";
+    public String helloWithPath(@PathVariable String name, Model model){
+        String greet = "Hello, " + name + "!";
+        model.addAttribute("greet", greet);
+        return "hello";
     }
 
     // /hello/form
     @GetMapping("form")
     public String helloForm(){
-        return "<html>" +
-                "<body>" +
-                "<form action='hello'>" + //submit to /hello
-                "<input type='text' name='name'>" +
-                "<input type='submit' value='Greet me!'>" +
-                "</form>" +
-                "</body>" +
-                "</html>";
+        return "form";
     }
 
 
     @GetMapping("message")
+    @ResponseBody
     public String helloPost(@RequestParam String name, @RequestParam String language){
         if(name == null || name.isEmpty()){
             name = "World";
@@ -74,6 +76,7 @@ public class HelloController {
 
     //Exercises
     @GetMapping("exercise")
+    @ResponseBody
     public String exerciseForm(){
         return "<html>" +
                 "<body>" +
@@ -91,5 +94,15 @@ public class HelloController {
                 "</form>" +
                 "</body>" +
                 "</html>";
+    }
+
+    @GetMapping("hello-names")
+    public String helloNames(Model model){
+        List<String> names = new ArrayList<>();
+        names.add("Lambert");
+        names.add("Stephen");
+        names.add("Adam");
+        model.addAttribute("names", names);
+        return "hello-list";
     }
 }
