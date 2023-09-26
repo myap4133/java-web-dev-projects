@@ -2,6 +2,7 @@ package org.launchcode;
 
 public class Main {
     public static void main(String[] args) {
+        //For debugging practice, switch branch to the upstream/debugging for debugging code
 
         // TODO: Declare and initialize a CD and a DVD object.
         CD cd = new CD(200, 500, 250, 0);
